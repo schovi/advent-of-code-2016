@@ -40,3 +40,14 @@ array = [1, 2, 3, 4]
 typeof(array.in_groups_of(2))    # => Array(Array(Int32 | Nul))
 typeof(array.in_groups_of(2, 0)) # => Array(Array(Int32)) 
 ```
+
+### Day 4
+
+- Again nil values! But can be handle with **not_nil!**
+
+```
+matcher = /([a-z\-]+)\-(\d+)\[([a-z]+)\]/
+matcher.match(some_string).not_nil!
+```
+
+- `map(&.[0].strip.capitalize[0..2])` is fucking awesome! Go to trash to_proc in ruby. 
