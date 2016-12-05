@@ -30,3 +30,13 @@ in 1/some.cr:2: can't return from top level
 ### Day 2
 
 - Watch your **chars** - Always confuse me if I have char or string!
+
+### Day 3
+
+Watch your maybe values in arrays
+
+```
+array = [1, 2, 3, 4]
+typeof(array.in_groups_of(2))    # => Array(Array(Int32 | Nul))
+typeof(array.in_groups_of(2, 0)) # => Array(Array(Int32)) 
+```
