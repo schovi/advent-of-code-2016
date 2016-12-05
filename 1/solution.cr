@@ -1,4 +1,5 @@
 input = File.read(File.join(__DIR__, "input"))
+
 steps = input.split(",").map(&.strip).map do |step|
   { step[0], step[1..-1].to_i }
 end

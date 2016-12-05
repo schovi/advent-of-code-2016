@@ -9,6 +9,8 @@
 
 ## Notes for Crystal
 
+
+### Day 1
 - There is no `.to_sym` on String, because symbols are converted into numbers during compile time.
 
 - cant use return keyword in toplevel 
@@ -23,3 +25,8 @@ in 1/some.cr:2: can't return from top level
 
 - destructuring tuple in block is like ... do |(x,y)| ... end
   - but on toplevel `x,y = tuple` (which makes sense :)
+
+
+### Day 2
+
+- Watch your **chars** - Always confuse me if I have char or string!
