@@ -51,3 +51,14 @@ matcher.match(some_string).not_nil!
 ```
 
 - `map(&.[0].strip.capitalize[0..2])` is fucking awesome! Go to trash to_proc in ruby. 
+
+
+### Day 5
+
+- Fist "computing heavy" quest. Tried some benchark. Never forget about --release flag :D
+
+| Results   | crystal run | compiled | with --release |
+|-----------|-------------|----------|----------------|
+| iteration | 91s         | 91s      | 10.4s          |
+
+- Tried naive version with channels (concurrency). Without batching it blow my computer up :)
