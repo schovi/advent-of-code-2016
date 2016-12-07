@@ -1,18 +1,10 @@
+require "./shared"
+
 ips = File.read_lines(File.join(__DIR__, "input")).map(&.strip)
 
 class String
-  def slices(by : Int)
-    result = [] of String
-
-    0.upto(size - by) do |i|
-      result.push(self[i..(i + by - 1)])
-    end
-
-    result
-  end
-
   def is_abba
-    char_at(0) != char_at(1) && self == reverse
+    size == 4 && char_at(0) != char_at(1) && self == reverse
   end
 end
 
