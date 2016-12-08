@@ -1,15 +1,17 @@
-input = File.read(File.join(__DIR__, "input"))
+lines = File.read_lines(File.join(__DIR__, "input"))
 
-instructions = input.split("\n").map { |line| line.split(//).map(&.char_at(0)) }
+instructions = lines.map(&.split(//).map(&.char_at(0)))
 
 keypad = {
-  { 1, 2, 3},
-  { 4, 5, 6},
-  { 7, 8, 9},
-}
+  {nil, nil, '1', nil, nil},
+  {nil, '2', '3', '4', nil},
+  {'5', '6', '7', '8', '9'},
+  {nil, 'A', 'B', 'C', nil},
+  {nil, nil, 'D', nil, nil},
+}    
 
 # x, y
-position = {0, 1}
+position = {0, 2}
 
 code = instructions.map do |moves|
   position = moves.reduce(position) do |position, move|
@@ -19,9 +21,9 @@ code = instructions.map do |moves|
     when 'U'
       y = y == 0 ? 0 : y - 1
     when 'R'
-      x = x == 2 ? 2 : x + 1
+      x = x == 4 ? 4 : x + 1
     when 'D'
-      y = y == 2 ? 2 : y + 1
+      y = y == 4 ? 4 : y + 1
     when 'L'
       x = x == 0 ? 0 : x - 1
     end
