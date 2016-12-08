@@ -39,10 +39,32 @@ def valid?(room)
   decryption == room[:checksum]
 end
 
-p data.reduce(0) do |sum, room|
-  if valid?(room)
-    sum += room[:value]
-  else
-    sum
+A_ORD = 'a'.ord
+ABCDS_LEN = 26
+ 
+def shift_char(char, shift)
+  (((char.ord - A_ORD + shift) % ABCDS_LEN) + A_ORD).chr 
+end
+
+valid_rooms = data.select do |room| 
+  valid?(room) 
+end
+
+names = valid_rooms.map do |room|
+  shift_by = room[:value] % ABCDS_LEN
+
+  decoded_text = String.build do |s|  
+    room[:encryption].each_char do |char|
+      s << (char == '-' ? ' ' : shift_char(char, shift_by))
+    end
   end
+
+  {
+    name: decoded_text,
+    id: room[:value]
+  }
+end
+
+names.each do |name|
+  p name
 end
